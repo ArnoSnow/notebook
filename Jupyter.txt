@@ -1,0 +1,259 @@
+Jupyter Notebook基础（1）简介、安装、运行服务器
+https://blog.csdn.net/mighty13/article/details/115313332
+Jupyter Notebook服务器启动后，会启动Jupyter Notebook的用户界面（网站）。
+
+https://blog.csdn.net/mighty13/article/details/115319342
+Jupyter Notebook基础（2）用户界面——仪表盘（dashboard）
+
+https://blog.csdn.net/mighty13/article/details/118366740
+Jupyter Notebook基础（3）用户界面——Notebook编辑器界面（editor）：菜单和工具栏
+
+https://blog.csdn.net/mighty13/article/details/118380271
+Jupyter Notebook基础（4）笔记本（Notebook）概述、单元格类别、单元格模式
+
+Jupyter Notebook基础（5）快捷键说明、快捷键设置
+https://blog.csdn.net/mighty13/article/details/118395979
+
+Jupyter Notebook基础（6）Jupyter Notebook命令行命令帮助
+https://blog.csdn.net/mighty13/article/details/118396024
+
+https://zhuanlan.zhihu.com/p/83252017  也是一篇可供重点参考的设置插件和主题和后台运行和多语言支持的文档
+
+https://zhuanlan.zhihu.com/p/561079528 这篇补充了主题的更多内容设置
+
+一、Jupyter用户界面
+（一）2种用户界面
+1、仪表盘（Dashboard）：即Jupyter Notebook服务器启动后打开的默认WEB界面，可以理解为Jupyter Notebook的文档管理器。
+2、编辑器（Editor）：即Jupyter Notebook的文档编辑、运行界面。
+下面将分开介绍2个界面的详细内容
+
+（二）仪表盘（Dashboard）——文档管理器概述
+1、最上方的Jupyter标识+右边2个退出按钮
+（1）Jupyter标识点击后会返回dashboard的主页，即web默认开启界面
+（2）位于标识右边的2个退出按钮
+Quit按钮：关闭Jupyter Notebook服务器。
+Logout按钮：退出登录，再次访问仪表盘需要输入密码或者token。
+
+2、下方的主选项卡
+（1）files选项卡：主管Jupyter当前工作目录中的所有文件和文件夹。
+如何查看当前工作目录，启动jupyter时候会弹出的windows 运行窗口里面有
+ Serving notebooks from local directory: C:\Users\yaoyan
+（2）running选项卡：主管正在运行中的终端或者notebooks
+注意浏览器中叉掉editor界面的方式不会关闭正在运行的进程，只是窗口消失
+（3）clusters选项卡：集群，创建多个用于并行计算的内核，基本不会再用到，因为已经被IPython parallel接管。
+
+3、FILES主选项卡解释
+（1）upload，上传计算器其他位置上的文件进入工作目录
+（2）new，用于创建新。类型有notebook（安装多内核的话可以在这里选择新建的什么语言的解释）other（text file 记事本、Folder 文件夹、Terminal终端）
+（3）刷新按钮
+（4）筛选按钮，按照文件夹、所有notebook文档、正在运行的notebook文档、文件等方式筛选当前目录文件。
+（5）全选按钮，选择/取消选择Jupyter Notebook当前目录的所有文件夹和文件。
+（6）返回根目录按钮：返回Jupyter Notebook工作目录
+（7）排序类型按钮，可以根据name（名称）、Last Modified（修改日期）、File size（文件大小）
+
+4、Files主选项卡选中文件后的活动选项解释
+（1）文件夹，可以有rename、move、删除
+（2）普通文件和未运行的notebook， Duplicate（复制）、Rename（重命名）、Move（移动）、Download（下载）、View（查看）、Edit（编辑）、删除等按钮。
+（3）已运行的notebook文档：选中正在运行的notebook文档后提供Duplicate（复制）、Shutdown（关闭正在运行的notebook文档）、View（查看）、Edit（编辑）、删除等按钮。
+
+（三）编辑器界面（Editor）
+新建或打开已存在的notebook就会进入编辑器界面。
+1、基础一览
+标题栏：显示文件名，文件保存状态。
+菜单栏：显示编辑器菜单。
+工具栏：显示编辑器常用工具按钮。
+单元格：notebook的主要组成部分，用于编辑代码、文本等。
+单元格状态栏：显示单元格的模式。
+内核状态栏：显示内核的状态。
+
+2、菜单栏——file文件菜单
+（1）New Notebook：新建笔记本（notebook）。二级菜单可以选择新建笔记本的内核（安装语言时会自动安装内核，也可以手动安装内核）。
+（2）Open...：打开笔记本（notebook）。将打开一个新窗口显示仪表盘（Dashboard）以供选择打开的笔记本。
+（3）Make a Copy...：创建当前笔记本的副本。将在当前笔记本所在目录中创建一个名为当前笔记本名称-Copy1的当前文件的副本，并在新窗口中打开。
+（4）Save as...：另存为。弹出对话框，在其中的输入框中输入当前笔记本的保存路径。路径要求是基于当前笔记本所在目录的相对路径。快捷键为CTRL+S。
+（5）Rename...：重命名。弹出对话框，在其中的输入框中输入新标题。
+（6）Save and Checkpoint：保存记事本并作为检查点（还原点）。
+（7）Revert to Checkpoint：恢复笔记本至检查点。弹出一个模态对话框进行确认。注意！恢复操作不可逆。
+（8）Print Preview：打印预览。在新窗口中打开当前页面的打印版，类似网页，不可修改。
+（9）Download as：以其他格式输出记事本。在二级菜单中可以选择输出格式。注意：pdf等格式需要额外安装插件来提供支持。
+（10）信任笔记：设置笔记本是否可信。
+（11）Close and Halt：关闭窗口，同时关闭当前记事本的内核进程。注意：如果只是关闭了笔记本的窗口是不会关闭基本的进程的！
+
+3、菜单栏—— edit编辑菜单，主要涉及cell单元格的编辑
+（1）Cut Cells：剪切单元格。命令模式下，快捷键为X。
+（2）Copy Cells：复制单元格。命令模式下，快捷键为C。
+（3）Paste Cells Above：将复制单元格粘贴到当前单元格上方。命令模式下，快捷键为SHIFT + V。
+（4）Paste Cells Below：将复制单元格粘贴到当前单元格下方。命令模式下，快捷键为V。
+（5）Paste Cells & Replace：粘贴并替换当前单元格。
+（6）Delete Cells：删除当前单元格。命令模式下，快捷键为D D。
+（7）Undo Delete Cells：撤销删除单元格。命令模式下，快捷键为Z。
+（8）Split Cell：（在光标处）拆分单元格。快捷键为CTRL + SHIFT + -。
+（9）Merge Cell Above：合并当前单元格与上方相邻单元格。
+（10）Merge Cell Below：合并当前单元格与下方相邻单元格。
+（11）Move Cell Up：上移当前单元格。
+（12）Move Cell Down：下移当前单元格。
+（13）Edit Notebook Metadata：编辑笔记本元数据。弹出对话框，元数据为JSON格式。
+（14）Find and Replace：查找并替换。支持大小写匹配、正则表达式。
+（15）Cut Cell Attachments：剪切单元格附件。附件概念详见View菜单-Cell Toolbar。
+（16）Copy Cell Attachments：复制单元格附件。
+（17）Paste Cell Attachments：粘贴单元格附件。
+（18）Insert Image：插入图片。弹出对话框可选择插入本地图像文件。仅支持MarkDown单元格。
+
+4、菜单栏—— View,用于管理工作本的一些外观
+（1）Toggle Header：切换显示/隐藏标题栏。
+（2）Toggle Toolbar：切换显示/隐藏工具栏。
+（3）Toggle Line Numbers：切换显示/隐藏单元格行号。
+（4）Cell Toolbar：在单元格中显示单元格工具栏。二级菜单为：
+	编辑元数据：在单元格工具栏中显示编辑元数据按钮。点击后可修改单元格的JSON元数据。
+	原始单元格格式：单元格默认样式。隐藏单元格工具栏。
+	幻灯片：在单元格工具栏中显示幻灯片类型下拉框。可设置每个单元格在幻灯片格式下的展示方式。
+	附件：在单元格工具栏中显示附件按钮。可编辑当前单元格的附件。
+	Tags：在单元格工具栏中显示标签按钮。为单元格提供标签管理。
+
+5、 菜单栏—— Insert，插入单元格
+（1）Insert Cell Above：在当前单元格上方插入空白单元格。命令模式下，快捷键为A。
+（2）Insert Cell Below：在当前单元格下方插入空白单元格。命令模式下，快捷键为B。
+
+6、菜单栏—— Cell，运行单元格
+（1）Run Cells：运行当前单元格。快捷键为CTRL + ENTER。
+（2）Run Cells and Select Below：运行当前单元格，并选中下方相邻单元格。注意，当前单元格为最后一个单元格时会在下方插入空白单元格。快捷键为SHIFT + ENTER。
+（3）Run Cells and Insert Below：运行当前单元格，并在下方插入空白单元格。快捷键为ALT + ENTER。
+（4）Run All：运行所有单元格。
+（5）Run All Above：运行上方所有单元格（不包括当前单元格）。
+（6）Run All Below：运行当前单元格及下方所有单元格。
+（7）Cell Type：设置单元格类型。二级菜单为：Code(代码模式)：命令模式下，快捷键为Y。Markdown(Markdown模式)：命令模式下，快捷键为M。原生NBConvert。命令模式下，快捷键为R。
+（8）Current Outputs：当前单元格输出操作。二级菜单为：Toggle：切换显示/隐藏当前单元格输出。命令模式下，快捷键为O。Toggle Scrolling：切换滚动显示当前单元格输出。命令模式下，快捷键为SHIFT + O。Clear：清除当前单元格输出。
+（9）All Output：所有输出操作。二级菜单为：Toggle：切换显示/隐藏所有单元格输出。Toggle Scrolling：切换滚动显示所有单元格输出。Clear：清除所有单元格输出。
+
+7、菜单栏—— Kernel内核操作
+（1）Interrupt：中断当前笔记本内核（解释器）与服务器的连接。相当于在控制台执行CTRL + C。命令模式下，快捷键为i i。
+（2）Restart：重启当前笔记本内核（解释器）。重启内核将丢失所有变量。命令模式下，快捷键为0 0。
+（3）Restart & Clear Output：重启当前笔记本内核（解释器）并清除所有单元格输出。
+（4）Restart & Run All：重启当前笔记本内核（解释器）并重新所有单元格。
+（5）Reconnect：重新连接服务器。
+（6）Shutdown ：关闭内核。关闭连接后需要重启内核进行重连。
+（7）Change kernel：改变笔记本内核（解释器）。二级菜单列出当前已安装的内核。
+
+8、菜单栏—— Widgets部件操作
+（1）Save Notebook Widget State：保存Notebook部件状态。
+（2）Clear Notebook Widget State：清除Notebook部件状态。
+（3）Download Widget State：下载Notebook部件状态。
+（4）Embed Widgets：嵌入Notebook部件状态。
+
+
+9、菜单栏——help帮助
+User Interface Tour：操作界面简易说明。
+Keyboard Shortcuts：键盘快捷键。命令模式下，快捷键为H。
+Edit Keyboard Shortcuts：编辑命令模式快捷键。
+Notebook Help：Notebook帮助链接。
+Markdown：Github Markdown帮助链接。
+Python Reference：Python参考手册链接。
+IPython Reference：IPython参考手册链接。
+NumPy Reference：NumPy参考手册链接。
+SciPy Reference：SciPy参考手册链接。
+Matplotlib Reference：Matplotlib参考手册链接。
+SymPy Reference：SymPy参考手册链接。
+pandas Reference：pandas参考手册链接。
+About：关于。显示Notebook 的一些版本信息。
+
+10、工具箱
+此处不做额外解释，停留于每个工具上面会提供功能英文，这些英文和上面的菜单栏一致可以知道用途
+
+
+二、给Jupyter设置密码
+ipython notebook 设置密码后就不能使用 token 进入客户端网页了
+（一）直接设置密码
+1、windows本身没有jupyter_notebook_config.py这个配置文件，请先使用如下方法生成
+#root客户：
+jupyter notebook --generate-config --allow-root
+#非root客户
+jupyter notebook --generate-config
+
+2、在anaconda prompt下输入ipython进入去生成密码
+（1）生成密码
+In [1]: from notebook.auth import passwd
+In [2]: passwd("1234")
+Out[3]: 'argon2:$argon2id$v=19$m=10240,t=10,p=8$T5Uuhf49ND0E/hHlP4SAWg$IMRkQ18ekEHwBDMuqyIqtzRgiYPpbvTQNfQWbuJl94s'
+（2）忘记密码
+#这东西甚至不需要验证你是不是你，就能切换。。。
+jupyter notebook password
+jupyter lab  password # 按提示，输入密码    lab
+3、修改配置文件，也即步骤1生成的那个jupyter_notebook_config.py
+位置一般会是在根目录，C:\Users\yaoyan\.jupyter
+
+
+三、笔记本、单元格类别、单元格模式
+（一）笔记本（Notebook）
+扩展名为.ipynb的独立文件。文件其实是以JSON格式进行组织的。笔记本文档包含交互式会话的输入和输出。
+其实就是ipython notebook的意思
+结构上来看，就是包含一系列单元格，每个单元格都是多行文输入控件，可以通过菜单栏、工具栏、按钮执行
+单元格的执行行为由单元格的类型决定。
+笔记本有三种类型的单元格：代码单元格、MarkDown单元格和原始单元格。
+
+（二）单元格类型
+1、代码单元格
+在代码单元格中可以编辑、运行代码，代码单元格支持语法高亮显示和Tab键自动补全。代码单元格支持的编程语言依赖于Jupyter Notebook安装的内核，默认内核（IPython）支持Python代码。
+
+在执行代码单元格时，单元格中的代码被发送到与笔记本关联的内核。内核运行代码并将运行结果作为单元格的输出显示在笔记本中。
+单元格的输出格式不限于文本，还可以输出matplotlib图形、HTML表格、图片、视频等富媒体。
+
+2、MarkDown单元格
+在notebook文档中除了可以编辑、运行代码，还可以通过MarkDown单元格来添加富文本。
+执行Markdown单元格时，Markdown标记将被转换为相应的富文本。Markdown支持通过HTML代码进行格式化。
+
+3、原始单元格
+原始单元格中的内容不会被执行。当通过nbconvert转换格式时，原始单元格内容保持不变。
+
+（三）单元格模式
+命令模式：命令模式下可以通过快捷键执行一些单元格级的操作。
+编辑模式：编辑模式可编辑单元格的内容。
+
+两种模式在编辑器界面上有所不同：
+命令模式：单元格边框为蓝色，单元格状态栏为空。
+编辑模式：单元格边框为绿色，单元格状态栏显示编辑图标。
+
+两种模式的切换：
+编辑模式→命令模式：按ESC键或鼠标单击单元格非编辑区域。
+命令模式→编辑模式：按ENTER键或鼠标左键单击单元格编辑区域。
+
+
+四、如何自定义jupyter主题
+（一）安装主题
+pip install jupyterthemes
+jupyter notebook的主题管理工具叫做jt，我们可以通过!jt -l命令查看可用主题，
+（二）变更主题
+!jt -t <theme_name>
+（三）还原主题
+!jt  -r
+（四）除开主题外还有很多东西能跟着一起做变更，但是全部的变更都必须先定义主题，才能进行其他东西的定义
+jt -t grade3 -f firacode -T -N
+
+五、启用插件
+（一）
+
+
+
+六、jupyter命令行帮助   暂时用不上，不研究
+jupyter命令是整个Jupyter项目命令的命名空间，单独执行jupyter命令无任何意义。
+jupyter命令的格式为jupyter <子命令> [选项]
+（一）子命令
+bundlerextension console kernel kernelspec lab labextension labhub migrate nbclassic nbconvert nbextension notebook qtconsole run script server serverextension troubleshoot trust
+（二）选项
+-h, --help：显示帮助信息。
+--version：显示Jupyter项目所有组件的版本信息。
+--config-dir：显示配置文件目录路径。
+--data-dir：显示数据文件目录路径。
+--runtime-dir：显示运行时目录路径。
+--paths：显示所有Jupyter目录和搜索路径。
+--json：以JSON格式输出所有Jupyter目录和搜索路径。
+
+示例：!jupyter kernel --help
+
+七、jupyter markdown文本基础格式用法
+加粗 **文本**
+倾斜 *文本*
+换行  复数空格加换行
+空格 &nbsp
+有序标识 数字+.
+无序标识，星号加号减号
+
